@@ -1,0 +1,21 @@
+{
+  "name": "nodejs-study",
+  "version": "1.0.0",
+  "description": "stydy",
+  "main": "index.js",
+  "dependencies": {
+    "bluebird": "^3.0.6"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  },
+  "scripts": {
+    "test": "npm index.js",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "study"
+  ],
+  "author": "weineel",
+  "license": "MIT"
+}
