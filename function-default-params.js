@@ -27,7 +27,7 @@ function f3_1({ p1 = 3, p2 = 'x' } = {}) {
 console.log('f3_1:')
 f3_1()  // p1 默认值3，p2默认值x
 
-function f3_2({ p1 = 3, p2 = 'x' } = { p1: 44 }, { p3 = 33, p4 = 'xx' }/* 只要传了这个位置参数，就按这个默认值来，即使传的不是对象*/ = { p3: 444 }, ...arg) {
+function f3_2({ p1 = 3, p2 = 'x' } = { p1: 44 }/* p2的默认值仍是x */, { p3 = 33, p4 = 'xx' }/* 只要传了这个位置参数，就按这个默认值来，即使传的不是对象*/ = { p3: 444 }, ...arg) {
     console.log(p1)
     console.log(p2)
     console.log(arg)
