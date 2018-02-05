@@ -21,4 +21,8 @@ describe('把数字字符串改写成千分位', () => {
         let v = '1234567'
         assert.equal(comdify(v), '1,234,567')
     })
+    it('12345.67改写为千分为', () => {
+        let v = '12345.67'
+        assert.equal(comdify(v), '12,345.67')
+    })
 })
