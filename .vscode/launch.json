@@ -6,14 +6,22 @@
   "configurations": [
     {
       "type": "node",
-      "request": "launch",
-      "name": "toStringToValue",
-      "program": "${workspaceFolder}/toStringToValue.js"
+      "request": "attach",
+      "name": "server",
+      "port": 9229
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "toStringToValue",
+      "program": "${workspaceFolder}/to-string2value.js",
+      // "runtimeVersion": "7.10.1",  // 无法读到.zshrc中的用户设置
+      "runtimeExecutable": "/Users/weineel/.nvm/versions/node/v8.9.0/bin/node"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "async test",
       "program": "${workspaceFolder}/async/test.js"
     }
   ]
