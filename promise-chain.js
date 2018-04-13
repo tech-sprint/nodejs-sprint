@@ -49,7 +49,7 @@ pp.then(data => {
     console.error('pp reject 3: ' + error)
 })
 
-/** Promise.resolve() 和 Promise.reject() 直接创建一个settled(fulilled/rejected)状态的Promise */
+/** Promise.resolve() 和 Promise.reject() 直接创建一个settled([fulilled/resolved]/rejected)状态的Promise */
 /** 根据当前状态决定调用 then还是catch得回调函数 */
 const p = Promise.resolve('xxx')  // p 初始状态为 fulfilled/resolved 和 new Promise() 创建的promise 初始状态为pending
 
