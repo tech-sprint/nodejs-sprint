@@ -2,11 +2,11 @@
  * Promise 链式调用
  */
 
-/** new Promise((resolve, reject) => {}) 创建一个pending状态的 Promise, 
+/** new Promise((resolve, reject) => {}) 创建一个pending状态的 Promise,
  * 通过回调 resolve 或 reject 突变Promise的状态，状态的突变会触发注册的then和catch回调。
  * */
 const pp = new Promise((resolve, reject) => {
-    // 内部调用 resolve 突变为 fulfilled 
+    // 内部调用 resolve 突变为 fulfilled
     // 内部调用 reject 或者发生任意未捕获的异常，突变为rejected
     setTimeout(() => {
         resolve('pp resolve 1:')
@@ -53,11 +53,11 @@ pp.then(data => {
 /** 根据当前状态决定调用 then还是catch得回调函数 */
 const p = Promise.resolve('xxx')  // p 初始状态为 fulfilled/resolved 和 new Promise() 创建的promise 初始状态为pending
 
-// catch 和 then回调函数的返回值(returnValue), 
+// catch 和 then回调函数的返回值(returnValue),
 // 会用 Promise.resolve(returnValue) 包装作为then和catch函数的返回值，所以可以返回一个任意类型的值,
 // 包括任意方式创建的Promise, 实现链式调用。
 
-// Promise.resolve(returnValue) 的解释： 
+// Promise.resolve(returnValue) 的解释：
 // 通常而言，如果你不知道一个值是否是Promise对象，使用Promise.resolve(value) 来返回一个Promise对象,
 // 这样就能将该value以Promise对象形式使用。
 
