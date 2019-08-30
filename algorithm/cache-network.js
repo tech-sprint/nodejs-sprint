@@ -4,15 +4,15 @@
 
 function callApi(params) {
   return new Promise((resolve, reject) => {
-    console.log('real network request.', `with params: ${params}`)
+    console.log('real network request.', `with params: ${getHash(params)}`)
     setTimeout(() => {
-      resolve(`api result with params: ${params}`)
+      resolve(`api result with params: ${getHash(params)}`)
     }, 1000)
   })
 }
 
 function getHash(value) {
-  return value
+  return JSON.stringify(value)
 }
 
 function newCallApiFactory() {
@@ -22,6 +22,9 @@ function newCallApiFactory() {
     if (!paramsPromiseList[pHash]) {
       paramsPromiseList[pHash] = callApi(params)
     }
+    paramsPromiseList[pHash].finally(() => {
+      delete paramsPromiseList[pHash]
+    })
     return paramsPromiseList[pHash]
   }
 }
@@ -29,9 +32,17 @@ function newCallApiFactory() {
 const newCallApi = newCallApiFactory()
 
 newCallApi('aaaaa').then(console.log)
+newCallApi('aaaaa').then(console.log)
 newCallApi('bbbbb').then(console.log)
-newCallApi('bbbbb').then(console.log)
-newCallApi('bbbbb').then(console.log)
+newCallApi('bbbbb').then((r) => {
+  console.log(r)
+  newCallApi('aaaaa').then(console.log)
+  newCallApi('bbbbb').then(console.log)
+})
 newCallApi('ccccc').then(console.log)
 newCallApi('ccccc').then(console.log)
 newCallApi('ccccc').then(console.log)
+newCallApi({a: '2'}).then(console.log)
+newCallApi({a: '2'}).then(console.log)
+newCallApi({b: '3'}).then(console.log)
+newCallApi({a: '4'}).then(console.log)
