@@ -37,6 +37,12 @@
       "request": "launch",
       "name": "async test",
       "program": "${workspaceFolder}/async/test.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "css html parser",
+      "program": "${workspaceFolder}/css-html-parser/index.js"
     }
   ]
 }
